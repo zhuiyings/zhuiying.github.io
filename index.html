@@ -12,13 +12,26 @@
     <meta name="referrer" content="never" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>top</title>
-    <link rel="shortcut icon" href="img/douban.ico" />
+    <!-- <link rel="shortcut icon" href="img/douban.ico" /> -->
     <!-- <link rel="shortcut icon" href="img/dnf.png" /> -->
     <link rel="stylesheet" href="index.css" />
+    <style>
+      #root {
+        /* background-image: url("./img/中保研_20200410.png"); */
+        overflow: auto;
+        /* background-size: 100% 100%; */
+      }
+      #img {
+        width: 100%;
+      }
+    </style>
   </head>
 
   <body>
-    <div id="root"></div>
-    <script src="index.js"></script>
+    <!-- <div id="div"></div> -->
+    <div id="root">
+      <img id="img" src="./img/中保研_20200410.png" />
+    </div>
+    <!-- <script src="index.js"></script> -->
   </body>
 </html>
