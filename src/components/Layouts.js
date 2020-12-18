@@ -1,24 +1,19 @@
 import React, { PureComponent } from "react";
-import { createHashHistory } from "history";
-import { connect } from "dva";
 import { Link } from "dva/router";
-import { Menu, Dropdown, Avatar, Layout, ConfigProvider, Affix } from "antd";
+import { Menu, Avatar, Layout, ConfigProvider, Affix } from "antd";
 import zhCN from "antd/es/locale/zh_CN";
 import {
   MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
   HomeOutlined,
   CarOutlined,
   YoutubeOutlined,
 } from "@ant-design/icons";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 export default class layouts extends PureComponent {
   constructor(props) {
     super(props);
-    const { active } = this.props;
 
     this.state = {};
   }
@@ -38,9 +33,9 @@ export default class layouts extends PureComponent {
         key: "/douban",
       },
       {
-        title: "联系我",
+        title: "关于我",
         icon: <MailOutlined />,
-        key: "/mail",
+        key: "/my",
       },
       // {
       //   title: "日常监管",

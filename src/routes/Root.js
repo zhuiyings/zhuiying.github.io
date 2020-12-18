@@ -1,14 +1,5 @@
 import React, { PureComponent } from "react";
-import { connect } from "dva";
-import {
-  Form,
-  Input,
-  Button,
-  message,
-  Tabs,
-  PageHeader,
-  notification,
-} from "antd";
+import { Form, Tabs, PageHeader, notification } from "antd";
 import Layouts from "../components/Layouts";
 
 const { TabPane } = Tabs;
@@ -43,8 +34,6 @@ export default class login extends PureComponent {
   };
 
   render() {
-    const { history } = this.props;
-
     return (
       <Layouts>
         <PageHeader title="个人中心" subTitle="修改密码"></PageHeader>

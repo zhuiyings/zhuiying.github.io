@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0; // box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+   font-family: Arial, "微软雅黑";
+    color: #000;
+    background-color: #F4F3F3;
+}
+
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.all {
+    .cont {
+       width: 960px;
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 30px 50px;
+        border: 1px solid #F4F3F3;
+        overflow: hidden;
+        .personal_information {
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin: 0 0 50px 0px;
+                transform: rotate(0);
+                animation: user_img 10s linear infinite;
+            }
+            img:hover {
+                animation: none;
+            }
+            h1 {
+                font-weight: 700;
+                font-size: 30px;
+                letter-spacing: 9px;
+                float: right;
+            }
+        }
+        ul {
+            float: left;
+            margin: 0 20px 0 0;
+            p {
+                padding: 5px 30px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 600;
+                margin: 0;
+                letter-spacing: 2px;
+            }
+            li {
+                background-color: #000;
+                margin: 10px 0;
+                padding: 5px 10px;
+                width: 130px;
+                text-align: center;
+                border-radius: 3px;
+                height: 25px;
+                line-height: 25px;
+                border: solid 1px #000;
+                a {
+                    color: #fff;
+                }
+                &:hover {
+                    a {
+
+                        color: #000;
+                    }
+                    background-color:#fff;
+                    border:solid 1px #000;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes user_img {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
