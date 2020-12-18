@@ -1,5 +1,5 @@
 export default {
-  namespace: "ciasi",
+  namespace: "zby",
 
   state: {
     dataSource: [

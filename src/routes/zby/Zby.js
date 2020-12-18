@@ -1,10 +1,11 @@
 import React, { PureComponent } from "react";
 import { connect } from "dva";
 import { Table, Tag } from "antd";
-import "antd/dist/antd.css";
+import "../../../node_modules/antd/dist/antd.css";
+import Layouts from "../../components/Layouts";
 
-@connect(({ ciasi }) => ({ ciasi }))
-export default class ciasi extends PureComponent {
+@connect(({ zby }) => ({ zby }))
+export default class Zby extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
@@ -26,11 +27,11 @@ export default class ciasi extends PureComponent {
           : "#9e9e9e"
       }
       style={{
-        color: "#000",
         padding: "3px 8px",
         borderRadius: 3,
-        fontWeight: "bold",
         fontSize: 13,
+        fontWeight: "bold",
+        color: "#000",
       }}
     >
       {v === 1
@@ -61,7 +62,7 @@ export default class ciasi extends PureComponent {
 
   render() {
     const {
-      ciasi: { dataSource: data },
+      zby: { dataSource: data },
     } = this.props;
 
     const dataSource = data
@@ -139,15 +140,16 @@ export default class ciasi extends PureComponent {
 
     // console.log(JSON.stringify(dataSource))
 
-    const width = 150;
+    const width = 100;
 
     const columns = [
       {
-        title: data.length,
+        title: `序号(${data.length})`,
         dataIndex: "link",
+        sorter: (a, b) => a.link - b.link,
         render: (v) => (
           <a
-            href={`https://ciasi.org.cn/home/safety/pageone/id/${v}.html`}
+            href={`https://zby.org.cn/home/safety/pageone/id/${v}.html`}
             target="_blank"
             rel="noreferrer"
           >
@@ -324,21 +326,23 @@ export default class ciasi extends PureComponent {
           },
         ],
       },
-      {
-        title: "得分",
-        dataIndex: "score",
-      },
+      // {
+      //   title: "得分",
+      //   dataIndex: "score",
+      // },
     ];
 
     return (
-      <div>
-        <Table
-          dataSource={dataSource}
-          columns={columns}
-          pagination={{ defaultPageSize: 100 }}
-          size="small"
-        />
-      </div>
+      <Layouts>
+        <div>
+          <Table
+            dataSource={dataSource}
+            columns={columns}
+            pagination={{ defaultPageSize: 100 }}
+            size="small"
+          />
+        </div>
+      </Layouts>
     );
   }
 }
