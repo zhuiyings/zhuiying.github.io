@@ -28,9 +28,14 @@ export default class layouts extends PureComponent {
         key: "/zby",
       },
       {
-        title: "豆瓣",
+        title: "豆瓣最热",
         icon: <YoutubeOutlined />,
-        key: "/douban",
+        key: "/hot",
+      },
+      {
+        title: "豆瓣Top250",
+        icon: <YoutubeOutlined />,
+        key: "/top250",
       },
       {
         title: "关于我",

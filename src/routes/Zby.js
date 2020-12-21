@@ -126,15 +126,15 @@ export default class Zby extends PureComponent {
               ? 5
               : 3) +
             (i.b3 === 4
-              ? 2
+              ? 1
               : i.b3 === 3
               ? 3
               : i.b3 === 2
               ? 4
               : i.b3 === 1
               ? 5
-              : 3) +
-            i.link * -0.01
+              : 2) +
+            i.link * -0.01,
         };
       })
       .sort(this.compare("score"));

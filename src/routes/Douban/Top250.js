@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import { connect } from "dva";
 import moment from "moment";
-import Layouts from "../components/Layouts";
-import { Table, Tag, Button, Input } from "antd";
+import Layouts from "../../components/Layouts";
+import { Table, Button, Input } from "antd";
 
 @connect(({ douban }) => ({
   douban,
@@ -95,7 +95,6 @@ export default class no extends PureComponent {
     const {
       douban: { online },
     } = this.props;
-    console.log(online);
 
     const columns = [
       {
@@ -114,7 +113,7 @@ export default class no extends PureComponent {
               height={36}
             />
           </span>
-        )
+        ),
       },
       {
         title: "名称",
@@ -146,18 +145,18 @@ export default class no extends PureComponent {
         sorter: (a, b) => a.comment - b.comment,
         render: (i) => (i / 10000).toFixed(1),
       },
-      {
-        title: "播放",
-        dataIndex: "has_video",
-        filters: [
-          { text: "是", value: true },
-          { text: "否", value: false },
-        ],
-        onFilter: (value, record) => record.has_video === value,
-        render: (i) => (
-          <Tag color={i ? "cyan" : "volcano"}> {i ? "是" : "否"}</Tag>
-        ),
-      },
+      // {
+      //   title: "播放",
+      //   dataIndex: "has_video",
+      //   filters: [
+      //     { text: "是", value: true },
+      //     { text: "否", value: false },
+      //   ],
+      //   onFilter: (value, record) => record.has_video === value,
+      //   render: (i) => (
+      //     <Tag color={i ? "cyan" : "volcano"}> {i ? "是" : "否"}</Tag>
+      //   ),
+      // },
       {
         title: "上映",
         dataIndex: "pubdates",
@@ -179,26 +178,25 @@ export default class no extends PureComponent {
         title: "类型",
         dataIndex: "genres",
       },
+      {
+        title: "导演",
+        dataIndex: "directors",
+        render: (i) =>
+          i.map((j) => (
+            <a href={j.alt} target="_blank" rel="noopener noreferrer">
+              {j.name}
+            </a>
+          )),
+      },
       // {
-      //   title: '导演',
-      //   dataIndex: 'directors',
-      //   render: i =>
-      //     i.map(j => (
+      //   title: "主演",
+      //   dataIndex: "casts",
+      //   render: (i) =>
+      //     i.map((j) => (
       //       <a href={j.alt} target="_blank" rel="noopener noreferrer">
-      //         {j.name}
-      //         <br />
+      //         {j.name} /{" "}
       //       </a>
-      //     ))
-      // },
-      // {
-      //   title: '主演',
-      //   dataIndex: 'casts',
-      //   render: i =>
-      //     i.map(j => (
-      //       <a href={j.alt} target="_blank" rel="noopener noreferrer">
-      //         {j.name} /{' '}
-      //       </a>
-      //     ))
+      //     )),
       // },
       // {
       //   title: "状态",
@@ -234,7 +232,7 @@ export default class no extends PureComponent {
           pagination={{
             showQuickJumper: true,
             showSizeChanger: true,
-            pageSizeOptions: ["10", "20", "30", "40", "50"],
+            pageSizeOptions: ["10", "25", "50", "100", "250"],
           }}
         />
         <span>共{online.length}条</span>
