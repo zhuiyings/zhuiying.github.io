@@ -108,9 +108,13 @@ export default class no extends PureComponent {
         dataIndex: "img",
         render: (i, item) => (
           <span>
-            <img src={item.img} alt="" height={36} />
+            <img
+              src={`https://images.weserv.nl/?url=${item.img}`}
+              alt=""
+              height={36}
+            />
           </span>
-        ),
+        )
       },
       {
         title: "名称",
