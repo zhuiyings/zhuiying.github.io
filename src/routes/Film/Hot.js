@@ -155,6 +155,7 @@ export default class no extends PureComponent {
     return (
       <Layouts>
         <Table
+          size="small"
           columns={columns}
           dataSource={hotList}
           pagination={{

@@ -8,8 +8,9 @@ const app = dva();
 // app.use({});
 
 // 3. Model
-app.model(require("./models/douban").default);
-app.model(require("./models/zby").default);
+require("./models").default.forEach(key => {
+    app.model(key.default);
+  });
 
 // 4. Router
 app.router(require("./router").default);

@@ -1,8 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "dva";
 import { Table, Tag } from "antd";
-import "../../node_modules/antd/dist/antd.css";
-import Layouts from "../components/Layouts";
+import Layouts from "../../components/Layouts";
 
 @connect(({ zby }) => ({ zby }))
 export default class Zby extends PureComponent {
@@ -337,10 +336,10 @@ export default class Zby extends PureComponent {
       <Layouts>
         <div>
           <Table
+            size="small"
             dataSource={dataSource}
             columns={columns}
             pagination={{ defaultPageSize: 100 }}
-            size="small"
           />
         </div>
       </Layouts>

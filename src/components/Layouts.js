@@ -1,12 +1,13 @@
 import React, { PureComponent } from "react";
 import { Link } from "dva/router";
-import { Menu, Avatar, Layout, ConfigProvider, Affix } from "antd";
 import zhCN from "antd/es/locale/zh_CN";
+import { Menu, Avatar, Layout, ConfigProvider, Affix } from "antd";
 import {
   MailOutlined,
   HomeOutlined,
   CarOutlined,
   YoutubeOutlined,
+  LineChartOutlined,
 } from "@ant-design/icons";
 
 const { Content } = Layout;
@@ -23,24 +24,29 @@ export default class layouts extends PureComponent {
 
     let menuList = [
       {
+        title: "汽车榜",
+        icon: <LineChartOutlined />,
+        key: "/car/data",
+      },
+      {
         title: "中保研",
         icon: <CarOutlined />,
-        key: "/zby",
+        key: "/car/zby",
       },
       {
         title: "豆瓣最热",
         icon: <YoutubeOutlined />,
-        key: "/hot",
+        key: "/film/hot",
       },
       {
         title: "豆瓣Top250",
         icon: <YoutubeOutlined />,
-        key: "/top250",
+        key: "/film/top",
       },
       {
         title: "关于我",
         icon: <MailOutlined />,
-        key: "/my",
+        key: "/my/info",
       },
       // {
       //   title: "日常监管",
