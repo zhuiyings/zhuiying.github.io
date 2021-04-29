@@ -36,9 +36,9 @@ export default class CarData extends PureComponent {
           index: index + 1,
         };
       })
-      .sort(this.compare("xl"));
+      .sort(this.compare("type2"));
 
-    // console.log(JSON.stringify(dataSource));
+    console.log(JSON.stringify(dataSource));
 
     const columns = [
       {
@@ -68,39 +68,31 @@ export default class CarData extends PureComponent {
           </Tag>
         ),
       },
-      // {
-      //   title: "长",
-      //   dataIndex: "a1",
-      // },
-      // {
-      //   title: "宽",
-      //   dataIndex: "a2",
-      // },
-      // {
-      //   title: "高",
-      //   dataIndex: "a3",
-      // },
-      // {
-      //   title: "轴距",
-      //   dataIndex: "a4",
-      // },
-      // {
-      //   title: "发动机",
-      //   dataIndex: "b1",
-      //   render: (i, item) => item.b1 + item.b2,
-      // },
-      // {
-      //   title: "马力",
-      //   dataIndex: "b3",
-      // },
-      // {
-      //   title: "变速箱",
-      //   dataIndex: "c1",
-      // },
-      // {
-      //   title: "悬架",
-      //   dataIndex: "d1",
-      // },
+      {
+        title: "长",
+        dataIndex: "a1",
+      },
+      {
+        title: "轴距",
+        dataIndex: "a4",
+      },
+      {
+        title: "发动机",
+        dataIndex: "b1",
+        render: (i, item) => item.b1 + item.b2,
+      },
+      {
+        title: "马力",
+        dataIndex: "b3",
+      },
+      {
+        title: "变速箱",
+        dataIndex: "c1",
+      },
+      {
+        title: "悬架",
+        dataIndex: "d1",
+      },
       {
         title: "半年销量",
         dataIndex: "xl",
@@ -116,7 +108,7 @@ export default class CarData extends PureComponent {
             columns={columns}
             pagination={{ defaultPageSize: 100 }}
             bordered
-            footer={() => "紧凑型轿车13，紧凑型SUV18，中型轿车11，中型轿车9"}
+            footer={() => "3月，数据更新时间 2021-04-29"}
           />
         </div>
       </Layouts>
