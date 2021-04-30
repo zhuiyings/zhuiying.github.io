@@ -15,7 +15,7 @@ function RouterConfig({ history }) {
         <Route path="/film/top" component={FilmTop} exact />
         <Route path="/film/hot" component={FilmHot} exact />
         <Route path="/my/info" component={MyInfo} exact />
-        <Route path="/" component={CarZby} />
+        <Route path="/" component={CarData} />
       </Switch>
     </Router>
   );
