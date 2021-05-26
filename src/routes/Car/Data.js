@@ -36,7 +36,7 @@ export default class CarData extends PureComponent {
           index: index + 1,
         };
       })
-      .sort(this.compare("type2"));
+      .sort(this.compare("xl"));
 
     console.log(JSON.stringify(dataSource));
 
@@ -49,32 +49,25 @@ export default class CarData extends PureComponent {
         title: "车型",
         dataIndex: "name",
       },
-      {
-        title: "级别",
-        dataIndex: "type2",
-        render: (i, item) => (
-          <Tag
-            color={i === "轿车" ? "cyan" : i === "SUV" ? "red" : "purple"}
-            // style={{
-            //   padding: "3px 8px",
-            //   borderRadius: 3,
-            //   fontSize: 13,
-            //   fontWeight: "bold",
-            //   color: "#000",
-            // }}
-          >
-            {item.type1}
-            {i}
-          </Tag>
-        ),
-      },
+      // {
+      //   title: "级别",
+      //   dataIndex: "type2",
+      //   render: (i, item) => (
+      //     <Tag color={i === "轿车" ? "cyan" : i === "SUV" ? "red" : "purple"}>
+      //       {item.type1}
+      //       {i}
+      //     </Tag>
+      //   ),
+      // },
       {
         title: "长",
         dataIndex: "a1",
+        render: (i) => (i > 4700 ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "轴距",
         dataIndex: "a4",
+        render: (i) => (i > 2700 ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "发动机",
@@ -84,18 +77,37 @@ export default class CarData extends PureComponent {
       {
         title: "马力",
         dataIndex: "b3",
+        render: (i) => (i >= 140 ? <Tag color="cyan">{i}</Tag> : i),
+      },
+      {
+        title: "扭矩",
+        dataIndex: "b4",
+        render: (i) => (i >= 200 ? <Tag color="cyan">{i}</Tag> : i),
+      },
+      {
+        title: "油耗",
+        dataIndex: "yh",
+        render: (i) => (i < 7.2 ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "变速箱",
         dataIndex: "c1",
+        render: (i) => (i === "AT" ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "悬架",
         dataIndex: "d1",
+        render: (i) => (i === "多连杆" ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "半年销量",
         dataIndex: "xl",
+        render: (i) => (i > 12e4 ? <Tag color="cyan">{i}</Tag> : i),
+      },
+      {
+        title: "月均销量",
+        dataIndex: "xl",
+        render: (i) => (i / 6).toFixed(0),
       },
     ];
 
@@ -108,7 +120,7 @@ export default class CarData extends PureComponent {
             columns={columns}
             pagination={{ defaultPageSize: 100 }}
             bordered
-            footer={() => "3月，数据更新时间 2021-04-29"}
+            footer={() => "4月，数据更新时间 2021-05-26"}
           />
         </div>
       </Layouts>
