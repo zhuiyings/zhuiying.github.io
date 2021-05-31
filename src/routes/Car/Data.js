@@ -67,7 +67,6 @@ export default class CarData extends PureComponent {
       {
         title: "轴距",
         dataIndex: "a4",
-        render: (i) => (i > 2700 ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "发动机",
@@ -77,17 +76,19 @@ export default class CarData extends PureComponent {
       {
         title: "马力",
         dataIndex: "b3",
-        render: (i) => (i >= 140 ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "扭矩",
         dataIndex: "b4",
-        render: (i) => (i >= 200 ? <Tag color="cyan">{i}</Tag> : i),
       },
       {
         title: "油耗",
         dataIndex: "yh",
-        render: (i) => (i < 7.2 ? <Tag color="cyan">{i}</Tag> : i),
+      },
+      {
+        title: "油费",
+        dataIndex: "yh",
+        render: (i) => (i * 100 * 6.78).toFixed(0),
       },
       {
         title: "变速箱",
@@ -108,6 +109,15 @@ export default class CarData extends PureComponent {
         title: "月均销量",
         dataIndex: "xl",
         render: (i) => (i / 6).toFixed(0),
+      },
+      {
+        title: "投诉",
+        dataIndex: "ts",
+      },
+      {
+        title: "投诉率(万分)",
+        dataIndex: "ts",
+        render: (i, item) => ((i * 10000) / item.xl).toFixed(2),
       },
     ];
 

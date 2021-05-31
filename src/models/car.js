@@ -25,6 +25,7 @@ export default {
         d1: "扭力梁",
         xl: 283627,
         index: 1,
+        ts: 393,
       },
       {
         name: "朗逸",
@@ -42,7 +43,7 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 212381,
-        index: 2,
+        index: 2,ts:303
       },
       {
         name: "卡罗拉",
@@ -61,6 +62,7 @@ export default {
         d1: "多连杆",
         xl: 186781,
         index: 3,
+        ts: 309,
       },
       {
         name: "英朗",
@@ -79,6 +81,7 @@ export default {
         d1: "多连杆",
         xl: 184810,
         index: 4,
+        ts: 388,
       },
       {
         name: "宝来",
@@ -96,7 +99,7 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 182710,
-        index: 5,
+        index: 5,ts:273
       },
       {
         name: "速腾",
@@ -115,6 +118,7 @@ export default {
         d1: "多连杆",
         xl: 159364,
         index: 6,
+        ts: 565,
       },
       {
         name: "雷凌",
@@ -132,7 +136,7 @@ export default {
         c1: "CVT",
         d1: "多连杆",
         xl: 126808,
-        index: 7,
+        index: 7,ts:289
       },
       {
         name: "思域",
@@ -148,7 +152,7 @@ export default {
         c1: "CVT",
         d1: "多连杆",
         xl: 105738,
-        index: 8,
+        index: 8,ts:256
       },
       {
         name: "逸动",
@@ -164,7 +168,7 @@ export default {
         c1: "双离合",
         d1: "扭力梁",
         xl: 105024,
-        index: 9,
+        index: 9,ts:141
       },
       {
         name: "桑塔纳",
@@ -180,7 +184,7 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 81001,
-        index: 10,
+        index: 10,ts:59
       },
       {
         name: "伊兰特",
@@ -196,7 +200,7 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 72797,
-        index: 11,
+        index: 11,ts:38
       },
       {
         name: "星瑞",
@@ -260,7 +264,7 @@ export default {
         c1: "CVT",
         d1: "扭力梁",
         xl: 59126,
-        index: 15,
+        index: 15,ts:74
       },
       {
         name: "领克03",
