@@ -1,9 +1,3 @@
-import { message } from "antd";
-import { top250Api, rankApi, hotListApi } from "../services/httpApi";
-import { sqlInsert, sqlCreate, sqlSelect, sqlDelete } from "../services/webSql";
-
-const tableName = ["top250"];
-
 export default {
   namespace: "car",
   state: {
@@ -43,7 +37,8 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 212381,
-        index: 2,ts:303
+        index: 2,
+        ts: 303,
       },
       {
         name: "卡罗拉",
@@ -99,7 +94,8 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 182710,
-        index: 5,ts:273
+        index: 5,
+        ts: 273,
       },
       {
         name: "速腾",
@@ -136,7 +132,8 @@ export default {
         c1: "CVT",
         d1: "多连杆",
         xl: 126808,
-        index: 7,ts:289
+        index: 7,
+        ts: 289,
       },
       {
         name: "思域",
@@ -152,7 +149,8 @@ export default {
         c1: "CVT",
         d1: "多连杆",
         xl: 105738,
-        index: 8,ts:256
+        index: 8,
+        ts: 256,
       },
       {
         name: "逸动",
@@ -168,7 +166,8 @@ export default {
         c1: "双离合",
         d1: "扭力梁",
         xl: 105024,
-        index: 9,ts:141
+        index: 9,
+        ts: 141,
       },
       {
         name: "桑塔纳",
@@ -184,7 +183,8 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 81001,
-        index: 10,ts:59
+        index: 10,
+        ts: 59,
       },
       {
         name: "伊兰特",
@@ -200,7 +200,8 @@ export default {
         c1: "AT",
         d1: "扭力梁",
         xl: 72797,
-        index: 11,ts:38
+        index: 11,
+        ts: 38,
       },
       {
         name: "星瑞",
@@ -264,7 +265,8 @@ export default {
         c1: "CVT",
         d1: "扭力梁",
         xl: 59126,
-        index: 15,ts:74
+        index: 15,
+        ts: 74,
       },
       {
         name: "领克03",

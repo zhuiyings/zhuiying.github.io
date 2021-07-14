@@ -4,7 +4,7 @@ const key = `0df993c66c0c636e29ecbb5344252a4a`;
 const config = {
   hotUrl: `https://movie.douban.com/j/new_search_subjects?sort=T&range=0,10&tags=%E7%94%B5%E5%BD%B1&unwatched=1&start=0`,
 
-  rankUrl: `https://movie.douban.com/j/new_search_subjects`,
+  rankListUrl: `https://movie.douban.com/j/new_search_subjects`,
 
   top250Url: `https://douban.uieee.com/v2/movie/top250?apikey=${key}&count=1000`,
 

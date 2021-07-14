@@ -1,6 +1,8 @@
 import { message } from "antd";
 import { top250Api, rankApi, hotListApi } from "../services/httpApi";
 import { sqlInsert, sqlCreate, sqlSelect, sqlDelete } from "../services/webSql";
+import fetchJsonp from "fetch-jsonp";
+import config from "../config";
 
 const tableName = ["top250"];
 
@@ -85,8 +87,36 @@ export default {
       const {
         data: { data },
       } = yield call(rankApi, payload);
+      yield put({
+        type: "save",
+        payload: { rankList: data },
+      });
       if (callback) callback(data);
     },
+
+    // *rankList({ payload, callback }, { call, put }) {
+    //   try {
+    //     yield fetchJsonp(
+    //       `${config.rankListUrl}?sort=T&range=0,10&tags=电影&start=${payload}`
+    //     )
+    //       .then((response) => response.json())
+    //       .then((data) => {
+    //         console.log("百度逆地理编码", data);
+    //         // if (data.status === 0) {
+    //         //   callback(true, data.result);
+    //         // } else {
+    //         //   callback(false);
+    //         // }
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //         callback(false);
+    //         // messages(false, {}, `逆地理编码失败`);
+    //       });
+    //   } catch (error) {
+    //     callback(false);
+    //   }
+    // },
 
     *init({ payload, callback }, { call, put }) {
       const { state } = yield call(sqlCreate, tableName);

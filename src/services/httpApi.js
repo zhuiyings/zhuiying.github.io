@@ -19,9 +19,10 @@ export async function us_boxUrl(params) {
   });
 }
 
-export async function rankApi(params) {
+export async function rankApi(start) {
   return request(
-    `${config.rankUrl}?sort=T&tags=${params.tags}&start=${params.start}&countries=${params.countries}&genres=${params.genres}&year_range=${params.year_range}&range=${params.range}`,
+    // `${config.rankUrl}?sort=T&tags=${params.tags}&start=${params.start}&countries=${params.countries}&genres=${params.genres}&year_range=${params.year_range}&range=${params.range}`,
+    `${config.rankListUrl}?sort=T&range=0,10&tags=电影&start=${start}`,
     {
       method: "GET",
     }
