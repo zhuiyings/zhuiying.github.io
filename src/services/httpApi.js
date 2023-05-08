@@ -7,6 +7,15 @@ export async function top250Api(params) {
   });
 }
 
+export async function top500Api(params) {
+  return request(
+    `http://localhost:9000/j/search_subjects?type=movie&tag=%E8%B1%86%E7%93%A3%E9%AB%98%E5%88%86&sort=recommend&page_limit=500&page_start=0`,
+    {
+      method: "GET",
+    }
+  );
+}
+
 export async function hotListApi(params) {
   return request(`${config.hotListUrl}`, {
     method: "GET",

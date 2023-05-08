@@ -15,7 +15,7 @@ function RouterConfig({ history }) {
         <Route path="/douban/top" component={DoubanTop} exact />
         <Route path="/douban/hot" component={DoubanHot} exact />
         <Route path="/my/info" component={MyInfo} exact />
-        <Route path="/" component={DoubanHot} />
+        <Route path="/" component={DoubanTop} />
       </Switch>
     </Router>
   );

@@ -9,13 +9,13 @@ import { Table, Button, Input } from "antd";
 }))
 export default class no extends PureComponent {
   componentDidMount() {
-    this.online();
+    // this.top500();
   }
 
-  online = () => {
+  top500 = () => {
     const { dispatch } = this.props;
     dispatch({
-      type: "douban/online",
+      type: "douban/top500",
     });
   };
 
@@ -54,7 +54,6 @@ export default class no extends PureComponent {
         <Button
           type="primary"
           onClick={() => this.handleSearch(selectedKeys, confirm)}
-          icon="search"
           size="small"
           style={{ width: 90, marginRight: 8 }}
         >
@@ -93,25 +92,26 @@ export default class no extends PureComponent {
 
   render() {
     const {
-      douban: { online },
+      douban: {
+        online,
+        top500: { subjects },
+      },
     } = this.props;
+
+    console.log(subjects);
 
     const columns = [
       {
         title: "排名",
-        dataIndex: "key",
-        sorter: (a, b) => a.key - b.key,
+        dataIndex: "index",
+        sorter: (a, b) => a.index - b.index,
       },
       {
         title: "照片",
         dataIndex: "img",
         render: (i, item) => (
           <span>
-            <img
-              src={`https://images.weserv.nl/?url=${item.img}`}
-              alt=""
-              height={36}
-            />
+            <img src={item.cover} alt="" height={36} />
           </span>
         ),
       },
@@ -120,31 +120,31 @@ export default class no extends PureComponent {
         dataIndex: "title",
         ...this.getColumnSearchProps("title"),
         render: (i, item) => (
-          <a href={item.alt} target="_blank" rel="noopener noreferrer">
+          <a href={item.url} target="_blank" rel="noopener noreferrer">
             {i}
           </a>
         ),
       },
       {
         title: "评分",
-        dataIndex: "score",
-        sorter: (a, b) => a.score - b.score,
+        dataIndex: "rate",
+        sorter: (a, b) => a.rate - b.rate,
         render: (i) => (
           <span style={{ color: i >= 9 ? "green" : "red" }}>{i}</span>
         ),
       },
-      {
-        title: "人数(万)",
-        dataIndex: "collect_count",
-        sorter: (a, b) => a.collect_count - b.collect_count,
-        render: (i) => (i / 10000).toFixed(1),
-      },
-      {
-        title: "评论(万)",
-        dataIndex: "comment",
-        sorter: (a, b) => a.comment - b.comment,
-        render: (i) => (i / 10000).toFixed(1),
-      },
+      // {
+      //   title: "人数(万)",
+      //   dataIndex: "collect_count",
+      //   sorter: (a, b) => a.collect_count - b.collect_count,
+      //   render: (i) => (i / 10000).toFixed(1),
+      // },
+      // {
+      //   title: "评论(万)",
+      //   dataIndex: "comment",
+      //   sorter: (a, b) => a.comment - b.comment,
+      //   render: (i) => (i / 10000).toFixed(1),
+      // },
       // {
       //   title: "播放",
       //   dataIndex: "has_video",
@@ -157,37 +157,37 @@ export default class no extends PureComponent {
       //     <Tag color={i ? "cyan" : "volcano"}> {i ? "是" : "否"}</Tag>
       //   ),
       // },
-      {
-        title: "上映",
-        dataIndex: "pubdates",
-        sorter: (a, b) => a.pubdates - b.pubdates,
-        render: (i) => moment(i).format("YYYY"),
-      },
-      {
-        title: "时长",
-        dataIndex: "durations",
-        sorter: (a, b) => a.durations - b.durations,
-      },
+      // {
+      //   title: "上映",
+      //   dataIndex: "pubdates",
+      //   sorter: (a, b) => a.pubdates - b.pubdates,
+      //   render: (i) => moment(i).format("YYYY"),
+      // },
+      // {
+      //   title: "时长",
+      //   dataIndex: "durations",
+      //   sorter: (a, b) => a.durations - b.durations,
+      // },
       // {
       //   title: '修改时间',
       //   dataIndex: 'time',
       //   sorter: (a, b) => a.time - b.time,
       //   render: i => moment(i).format('YYYY-MM-DD HH:mm:ss')
       // },
-      {
-        title: "类型",
-        dataIndex: "genres",
-      },
-      {
-        title: "导演",
-        dataIndex: "directors",
-        render: (i) =>
-          i.map((j) => (
-            <a href={j.alt} target="_blank" rel="noopener noreferrer">
-              {j.name}
-            </a>
-          )),
-      },
+      // {
+      //   title: "类型",
+      //   dataIndex: "genres",
+      // },
+      // {
+      //   title: "导演",
+      //   dataIndex: "directors",
+      //   render: (i) =>
+      //     i.map((j) => (
+      //       <a href={j.alt} target="_blank" rel="noopener noreferrer">
+      //         {j.name}
+      //       </a>
+      //     )),
+      // },
       // {
       //   title: "主演",
       //   dataIndex: "casts",
@@ -227,7 +227,12 @@ export default class no extends PureComponent {
         <Table
           size="small"
           columns={columns}
-          dataSource={online}
+          dataSource={subjects.map((item, index) => {
+            return {
+              ...item,
+              index: index + 1,
+            };
+          })}
           // size="small"
           // bordered
           pagination={{
@@ -237,7 +242,7 @@ export default class no extends PureComponent {
           }}
         />
         <span>共{online.length}条</span>
-        <span style={{ float: "right" }}>更新至2019-10-15</span>
+        <span style={{ float: "right" }}>更新至2023-05-08</span>
       </Layouts>
     );
   }
