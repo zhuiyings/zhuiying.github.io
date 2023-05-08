@@ -3,15 +3,17 @@ import { connect } from "dva";
 import Layouts from "../../components/Layouts";
 import { Table, Tag } from "antd";
 
-const Hot = ({ dispatch, douban: { rankList } }) => {
+export default connect(({ douban }) => ({
+  douban,
+}))(Hot);
+
+function Hot({ dispatch, douban: { rankList } }) {
   const [loading, setLoading] = useState(false);
 
   const _rankList = (payload) => {
-    setLoading(true);
     dispatch({
-      type: "douban/rankList",
+      type: "douban/douban",
       payload,
-      callback: () => setLoading(false),
     });
   };
 
@@ -20,20 +22,20 @@ const Hot = ({ dispatch, douban: { rankList } }) => {
   }, []);
 
   const columns = [
-    {
-      title: "照片",
-      dataIndex: "img",
-      render: (i, item) => (
-        <span>
-          <img
-            // src={`https://images.weserv.nl/?url=${item.cover}`}
-            src={item.cover}
-            alt=""
-            height={36}
-          />
-        </span>
-      ),
-    },
+    // {
+    //   title: "照片",
+    //   dataIndex: "img",
+    //   render: (i, item) => (
+    //     <span>
+    //       <img
+    //         // src={`https://images.weserv.nl/?url=${item.cover}`}
+    //         src={item.cover}
+    //         alt=""
+    //         height={36}
+    //       />
+    //     </span>
+    //   ),
+    // },
     {
       title: "名称",
       dataIndex: "title",
@@ -47,7 +49,15 @@ const Hot = ({ dispatch, douban: { rankList } }) => {
       title: "评分",
       dataIndex: "rate",
       sorter: (a, b) => a.rate - b.rate,
-      render: (i) => <Tag color={i >= 8 ? "blue" : "red"}>{i}</Tag>,
+      render: (i) => (
+        <Tag
+          color={
+            i >= 9 ? "blue-inverse" : i >= 8 ? "green-inverse" : "red-inverse"
+          }
+        >
+          {i}
+        </Tag>
+      ),
     },
     {
       title: "热度(万)",
@@ -86,8 +96,4 @@ const Hot = ({ dispatch, douban: { rankList } }) => {
       <span style={{ float: "right" }}>实时数据</span>
     </Layouts>
   );
-};
-
-export default connect(({ douban }) => ({
-  douban,
-}))(Hot);
+}

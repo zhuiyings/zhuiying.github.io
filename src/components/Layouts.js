@@ -23,23 +23,23 @@ export default class layouts extends PureComponent {
     const { children } = this.props;
 
     let menuList = [
+      // {
+      //   title: "汽车榜",
+      //   icon: <LineChartOutlined />,
+      //   key: "/car/data",
+      // },
+      // {
+      //   title: "中保研",
+      //   icon: <CarOutlined />,
+      //   key: "/car/zby",
+      // },
+      // {
+      //   title: "豆瓣最热",
+      //   icon: <YoutubeOutlined />,
+      //   key: "/film/hot",
+      // },
       {
-        title: "汽车榜",
-        icon: <LineChartOutlined />,
-        key: "/car/data",
-      },
-      {
-        title: "中保研",
-        icon: <CarOutlined />,
-        key: "/car/zby",
-      },
-      {
-        title: "豆瓣最热",
-        icon: <YoutubeOutlined />,
-        key: "/film/hot",
-      },
-      {
-        title: "豆瓣Top250",
+        title: "豆瓣Top500",
         icon: <YoutubeOutlined />,
         key: "/film/top",
       },

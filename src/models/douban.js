@@ -84,39 +84,28 @@ export default {
     },
 
     *rankList({ payload, callback }, { call, put }) {
-      const {
-        data: { data },
-      } = yield call(rankApi, payload);
-      yield put({
-        type: "save",
-        payload: { rankList: data },
-      });
-      if (callback) callback(data);
+      const data = yield call(rankApi, payload);
+      console.log(data);
+      // yield put({
+      //   type: "save",
+      //   payload: { rankList: data },
+      // });
+      // if (callback) callback(data);
     },
 
-    // *rankList({ payload, callback }, { call, put }) {
-    //   try {
-    //     yield fetchJsonp(
-    //       `${config.rankListUrl}?sort=T&range=0,10&tags=电影&start=${payload}`
-    //     )
-    //       .then((response) => response.json())
-    //       .then((data) => {
-    //         console.log("百度逆地理编码", data);
-    //         // if (data.status === 0) {
-    //         //   callback(true, data.result);
-    //         // } else {
-    //         //   callback(false);
-    //         // }
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //         callback(false);
-    //         // messages(false, {}, `逆地理编码失败`);
-    //       });
-    //   } catch (error) {
-    //     callback(false);
-    //   }
-    // },
+    *douban({ payload, callback }, { call }) {
+      const year = 2017;
+      yield fetchJsonp(
+        `https://m.douban.com/rexxar/api/v2/movie/recommend?refresh=0&start=0&count=20&selected_categories=%7B%7D&uncollect=false&sort=T&tags=${year}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(year, data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
 
     *init({ payload, callback }, { call, put }) {
       const { state } = yield call(sqlCreate, tableName);
